@@ -1,7 +1,7 @@
 package me.kzv.datastructure
 
 class MyArrayList {
-    var size = 0 // 현재 요소의 개수 ... 인덱스와 맞추려면 -1을 해줘야 한다!!
+    var size = 0 // 현재 요소의 개수 ... 인덱스와 맞추려면 -1을 해줘야 한다!! - size는 다른곳에서도 사용하므로 public으로
     private var capacity = 10 // 현재 수용 가능한 최대 용량
     private var elementData = arrayOfNulls<Any>(capacity) // default 10
 
@@ -64,6 +64,8 @@ class MyArrayList {
         return elementData[index]!!
     }
 
+    fun listIterator() = MyListIterator(elementData, size)
+
     /**
      *  만약 데이터는 적은데 배열의 수용용량은 엄청 크면 메모리가 낭비되고,
      *  반대로 최대 용량은 적은데 더 많은 데이터를 넣으려고 한다면 에러가 발생할 것이다.
@@ -99,5 +101,19 @@ class MyArrayList {
 
         return "$str]"
     }
+}
 
+class MyListIterator(
+    private val elementData: Array<Any?>,
+    private val size: Int
+) {
+    private var currentIndex = 0
+
+    fun hasNext() = currentIndex < size
+
+    fun next() = elementData[currentIndex++]
+
+    fun hasPrev() = currentIndex > 0
+
+    fun prev() = elementData[--currentIndex]
 }
