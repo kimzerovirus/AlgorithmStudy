@@ -1,4 +1,4 @@
-package datastructure
+package me.kzv.datastructure
 
 fun main(){
     intArrayList()

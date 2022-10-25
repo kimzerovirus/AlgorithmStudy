@@ -1,3 +1,3 @@
 
-rootProject.name = "kotlin-datastructure"
+rootProject.name = "kotlin-me.kzv.datastructure"
 
