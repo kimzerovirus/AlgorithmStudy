@@ -1,4 +1,4 @@
-package me.kzv.datastructure
+package me.kzv.datastructure.myarray.test
 
 fun main(){
     intArrayList()

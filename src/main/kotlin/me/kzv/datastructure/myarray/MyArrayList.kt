@@ -1,4 +1,4 @@
-package me.kzv.datastructure
+package me.kzv.datastructure.myarray
 
 class MyArrayList {
     var size = 0 // 현재 요소의 개수 ... 인덱스와 맞추려면 -1을 해줘야 한다!! - size는 다른곳에서도 사용하므로 public으로

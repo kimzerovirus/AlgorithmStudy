@@ -1,5 +1,49 @@
 # Kotlin-Datastructure
 
+**연결 리스트**
+
+![img](https://cphinf.pstatic.net/mooc/20210412_137/16182216780657zwCT_PNG/mceclip0.png)
+
+ 
+
+**스택 & 큐**
+
+![img](https://cphinf.pstatic.net/mooc/20210412_234/1618221720177BK2bF_PNG/mceclip1.png)
+
+ 
+
+**체인 해시**
+
+![img](https://cphinf.pstatic.net/mooc/20210412_58/16182217970322FWIt_PNG/mceclip2.png)
+
+ 
+
+**트리**
+
+![img](https://cphinf.pstatic.net/mooc/20210412_7/1618221911213bTf5e_PNG/mceclip3.png)
+
+ 
+
+**정렬**
+
+![img](https://cphinf.pstatic.net/mooc/20210412_223/1618221974817OOUwc_PNG/mceclip4.png)
+
+
+
+## 시간 복잡도
+
+> 항상 상수는 무시한다. (n == 2n == 50n != n^2 == 100n^2)<br/>
+>
+> 낮은 차수의 항은 무시한다. (n^3 + n^2 + 1 == n^3 + n + 1)<br/>
+>
+> 등호를 사용하여 표현하며 2n = O(n), 2n은 O(n)이라는 함수의 집합에 속한다는 뜻이다. 
+
+- **log n** : 반복 문으로 무언가를 탐색하면서 반으로 나누거나 2를 곱하는 경우 (밑은 무시하고 그냥 log n 복잡도를 가진다고 표현한다. ex: trees)
+
+- **n** : 각각의 요소마다 한 번씩 작업을 하는 경우 (ex: list)
+
+- **n^2** : 모든 요소를 서로 비교하는 경우 (ex: bubble sort)
+
 ## 배열과 리스트의 차이점
 
 배열은 요소를 지우면 지워진 요소의 자리가 null로 채워지지만 리스트는 한자리씩 앞으로 땡겨서 채운다
@@ -62,4 +106,8 @@ c 에는 리스트가 없다. 하지만 최근에 만들어진 언어인 자바�
 ### HashTableMap
 - key 또는 value 값으로써 null을 허용하지 않는다. 
 
- 
+
+
+###### 참고
+
+[네이버 부스트코스 - 자바로 구현하고 배우는 자료구조](https://www.boostcourse.org/cs204/home) 
