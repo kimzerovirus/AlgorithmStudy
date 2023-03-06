@@ -1,4 +1,4 @@
-# Kotlin-Datastructure
+# Datastructure
 
 **연결 리스트**
 
@@ -129,3 +129,7 @@ c 에는 리스트가 없다. 하지만 최근에 만들어진 언어인 자바�
 ###### 참고
 
 [네이버 부스트코스 - 자바로 구현하고 배우는 자료구조](https://www.boostcourse.org/cs204/home) 
+
+파이썬 알고리즘 인터뷰
+
+[리트코드](https://leetcode.com)
