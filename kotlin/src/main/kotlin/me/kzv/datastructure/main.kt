@@ -1,5 +1,8 @@
 package me.kzv.datastructure
 
+import me.kzv.datastructure.myarray.MyArrayList
+import me.kzv.datastructure.myarray.MyListIterator
+
 fun main() {
     myArrayListTest()
 }
