@@ -5,13 +5,13 @@ import java.util.Random;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        bubble();
+        int[] A = new int[]{1, 5, 2, 3, 4};
+
+        print(bubble(A));
 //        ex1();
     }
 
-    static void bubble() {
-        int[] A = new int[]{1, 5, 2, 3, 4};
-
+    static int[] bubble(int[] A) {
         // 0 ~ 마지막 요소 전까지 순회
         for (int i = 0; i < A.length - 1; i++) {
             // i 번째 까지는 이미 순회를 맞쳐서 정렬 된 상태이므로 반복문에서 예외 시켜줌 따라서 순회 범위는 A.length - 1 - i
@@ -28,8 +28,12 @@ public class BubbleSort {
             }
         }
 
+        return A;
+    }
+
+    static void print(int[] A){
         for (int i : A) {
-            System.out.println(i);
+            System.out.print(i + ", ");
         }
     }
 

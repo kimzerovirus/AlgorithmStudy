@@ -2,12 +2,18 @@ package me.kzv.sort;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        selection();
-    }
-
-    static void selection() {
         int[] A = new int[]{1, 5, 2, 3, 4};
 
+        print(selection(A));
+    }
+
+    static void print(int[] A){
+        for (int i : A) {
+            System.out.print(i + ", ");
+        }
+    }
+
+    static int[] selection(int[] A) {
         for (int i = 0; i < A.length; i++) {
             int Minimum = i; // 순회를 돌면서 가장 작은 값을 담을 변수
 
@@ -23,8 +29,6 @@ public class SelectionSort {
             }
         }
 
-        for (int i : A) {
-            System.out.println(i);
-        }
+        return A;
     }
 }
