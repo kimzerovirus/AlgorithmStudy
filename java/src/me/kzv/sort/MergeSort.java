@@ -1,11 +1,11 @@
 package me.kzv.sort;
 
 public class MergeSort {
-    static int[] sorted;
+    static int[] temp;
 
     public static void main(String[] args) {
         int[] A = new int[]{1, 5, 2, 3, 4};
-        sorted = new int[A.length];
+        temp = new int[A.length];
 
         print(merge_sort(A, 0, A.length - 1));
     }
@@ -29,25 +29,25 @@ public class MergeSort {
         /* 분할 정렬된 list의 합병 */
         while (i <= mid && j <= right) {
             if (A[i] <= A[j])
-                sorted[k++] = A[i++];
+                temp[k++] = A[i++];
             else
-                sorted[k++] = A[j++];
+                temp[k++] = A[j++];
         }
 
         // 남아 있는 값들을 일괄 복사
         if (i > mid) {
             for (l = j; l <= right; l++)
-                sorted[k++] = A[l];
+                temp[k++] = A[l];
         }
         // 남아 있는 값들을 일괄 복사
         else {
             for (l = i; l <= mid; l++)
-                sorted[k++] = A[l];
+                temp[k++] = A[l];
         }
 
-        // 배열 sorted(임시 배열)의 리스트를 배열 list 로 재복사
+        // 임시배열 -> 배열로 재복사
         for (l = left; l <= right; l++) {
-            A[l] = sorted[l];
+            A[l] = temp[l];
         }
     }
 
