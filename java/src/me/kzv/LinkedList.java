@@ -74,7 +74,10 @@ class LinkedListNode {
     }
 }
 
-class RemoveDups {
+/**
+ * Q1. 중복 노드 제거하기 단, 새로운 버퍼 없이 포인터로만 만들것
+ */
+class Q1 {
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.append(2);
@@ -85,5 +88,14 @@ class RemoveDups {
         ll.retrieve();
         ll.removeDups();
         ll.retrieve();
+    }
+}
+
+/**
+ * Q2. 단방향 링크드리스트의 끝에서 K번째 노드를 찾는 알고리즘 구현하기
+ */
+class Q2 {
+    public static void main(String[] args) {
+        
     }
 }
