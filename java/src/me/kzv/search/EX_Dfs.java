@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Dfs {
+public class EX_Dfs {
     static int N = 10;
     static List<Integer>[] A = new List[N];
     static boolean[] visited;
@@ -26,7 +26,7 @@ public class Dfs {
         }
     }
 
-    private static void search(int v) {
+    static void search(int v) {
         if (visited[v]) return;
         visited[v] = true;
         for (int i : A[v]) { // 연결 노드 중 방문하지 않았던 노드만 탐색
