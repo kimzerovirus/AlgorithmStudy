@@ -1,4 +1,4 @@
-package me.kzv.sort;
+package me.kzv.trash.sort;
 
 public class MergeSort {
     static int[] temp;

@@ -1,4 +1,4 @@
-package me.kzv.sort;
+package me.kzv.trash.sort;
 
 import java.util.Arrays;
 import java.util.Random;

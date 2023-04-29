@@ -1,4 +1,4 @@
-package me.kzv;
+package me.kzv.datastructure.linkedList;
 
 public class SinglyLinkedList {
     public static void main(String[] args) {

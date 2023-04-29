@@ -1,4 +1,4 @@
-package me.kzv.search;
+package me.kzv.trash.search;
 
 import java.util.ArrayList;
 import java.util.List;

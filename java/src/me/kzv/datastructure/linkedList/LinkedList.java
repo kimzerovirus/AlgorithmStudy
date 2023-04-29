@@ -1,4 +1,4 @@
-package me.kzv;
+package me.kzv.datastructure.linkedList;
 
 class LinkedList {
     Node header;
