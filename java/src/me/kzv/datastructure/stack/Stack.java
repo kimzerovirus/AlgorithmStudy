@@ -2,6 +2,9 @@ package me.kzv.datastructure.stack;
 
 import java.util.EmptyStackException;
 
+/**
+ * Last in Last out
+ */
 public class Stack<T> {
     private Node<T> top;
 
