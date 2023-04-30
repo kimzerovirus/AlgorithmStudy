@@ -47,14 +47,14 @@ class Solution {
 
     int go() {
         for (Pair pair : virus) {
-            visited[pair.first()][pair.second()];
+            visited[pair.first()][pair.second()] = 1;
             dfs(pair.first(), pair.second());
         }
 
         int cnt = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (a[i][j] == 0 && visited[i][j]) cnt++; // 안전 영역
+                if (a[i][j] == 0 && visited[i][j] == 0) cnt++; // 안전 영역
             }
         }
 
