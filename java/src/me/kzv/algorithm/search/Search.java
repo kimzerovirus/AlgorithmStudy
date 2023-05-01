@@ -1,4 +1,4 @@
-package me.kzv.search;
+package me.kzv.algorithm.search;
 
 import java.util.LinkedList;
 import java.util.Queue;
