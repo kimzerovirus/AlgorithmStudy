@@ -1,6 +1,6 @@
 package me.kzv.algorithm;
 
-public class recursion {
+public class Recursion {
     public static void main(String[] args) {
         System.out.println(factorial(1, 1, 5));
         // 1 * 2 * 3 * 4 * 5 = 120
