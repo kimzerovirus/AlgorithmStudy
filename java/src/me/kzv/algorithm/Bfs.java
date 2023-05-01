@@ -21,6 +21,8 @@ public class Bfs {
         ...
 
         따라서 너비 우선 탐색을 하려면 FIFO 형태의 큐를 사용해야함
+
+        2차원 배열이 주어졌을 때 x,y 좌표 보다 row,col 관점으로 보는게 더 편한듯
      */
 
     public static void main(String[] args) {
