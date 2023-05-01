@@ -113,4 +113,5 @@ DFS {
 - Queue
 - 방문리스트
 
-[참고](https://code-lab1.tistory.com)
+[참고1](https://code-lab1.tistory.com)
+[참고2](https://wikidocs.net/book/5895)
