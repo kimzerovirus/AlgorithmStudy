@@ -3,7 +3,10 @@ package me.kzv.algorithm;
 import java.util.*;
 
 public class Bfs {
-    // 큐를 이용한 완전탐색
+    // BFS 넢이 우선 탐색
+    // 큐를 이용한 횡의 방향 완전탐색
+    // 최적의 경로를 보장한다! - 최단거리 문제
+    // 2차원 배열 형태의 바둑판 모양으로 주어질 때 유용한듯
     /*
         -----------------
         | 1 | 2 | 3 | 4 |
@@ -26,6 +29,12 @@ public class Bfs {
      */
 
     public static void main(String[] args) {
+        // 1. 시작 노드를 큐에 저장
+        // 2. 선입선출 맨앞 노드 추출 peek
+        // 3. 연산 수행
+        // 4. 인접 노드 큐에 저장
+        // 5. 탐색이 끝난 노드 삭제 poll
+        // 6. 다음 노드를 꺼내서 큐가 삘 때까지 반복
         int row = 3, col = 4;
         int[][] map = new int[row][col]; // 행 row - 열 col
         int temp = 1;
