@@ -1,5 +1,6 @@
 package me.kzv.algorithm;
 
+// 참고: https://injae-kim.github.io/dev/2020/07/23/all-about-kmp-algorithm.html
 /**
  * 문자열 검색 알고리즘
  * KMP 알고리즘의 시간 복잡도는 O(N+M)으로 위의 무식한 방법 O(NM) 보다 빠름
