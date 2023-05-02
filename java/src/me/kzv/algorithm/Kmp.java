@@ -30,12 +30,15 @@ package me.kzv.algorithm;
  */
 
 public class Kmp {
-    public static void main(String[] args) {
-        int i = BruteForceMatch("aklewjfkafljawlkefafjlkasdjlsafdkfjklsdaf", "af");
-        System.out.println(i);
+    final static String text = "aklewjfkafljawlkefafjlkasdjlsafdkfjklsdaf";
+    final static String pattern = "af";
 
-        int i1 = kmpMatch("aklewjfkafljawlkefafjlkasdjlsafdkfjklsdaf", "af");
-        System.out.println(i1);
+    public static void main(String[] args) {
+        int bf = BruteForceMatch(text, pattern);
+        System.out.println(bf);
+
+        int kmp = kmpMatch(text, pattern);
+        System.out.println(kmp);
     }
 
     // O(n * m) 일일히 문자열 비교하고 카운팅
