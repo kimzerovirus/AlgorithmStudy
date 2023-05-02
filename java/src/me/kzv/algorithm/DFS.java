@@ -3,7 +3,7 @@ package me.kzv.algorithm;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class Dfs {
+public class DFS {
     // DFS 깊이 우선 탐색
     // 스택, 재귀 사용
     // 경로의 정보를 저장하는 유형

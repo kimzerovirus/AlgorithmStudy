@@ -30,7 +30,7 @@ package me.kzv.algorithm;
  * 일일히 하나하나 글자를 비교하지 않고 접미사와 접두사가 일치하는 부분을 찾아서 점프해 나가면서 시간 단축하는 알고리즘인듯
  */
 
-public class Kmp {
+public class KMP {
     final static String text = "aklewjfkafljawlkefafjlkasdjlsafdkfjklsdaf";
     final static String pattern = "af";
 

@@ -2,7 +2,7 @@ package me.kzv.algorithm;
 
 import java.util.*;
 
-public class Bfs {
+public class BFS {
     // BFS 넢이 우선 탐색
     // 큐를 이용한 횡의 방향 완전탐색
     // 최적의 경로를 보장한다! - 최단거리 문제
