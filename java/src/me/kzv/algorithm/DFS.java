@@ -132,3 +132,38 @@ class DFS_stack {
         }
     }
 }
+
+class DFS_BackTracking {
+    static int[] rates = {10, 20, 30};
+    static Stack<Integer> rateCombination = new Stack<>();
+    static int N = 3;
+
+    static void dfs(int depth) {
+        if (depth == N) {
+//            System.out.println(temp);
+            System.out.println("조합 완성");
+            return;
+        }
+
+        for (int rate : rates) {
+            rateCombination.push(rate);
+
+            System.out.println(rateCombination);
+            dfs(depth + 1); // N이 3인 경우 첫번째 dfs 가 돌고 첫번째 안의 dfs(두번째) 가 돌고 그 안의 dfs(세번째) 가 세번 돌고나서 다시 두번째 dfs 가 돌고 이 두번재 dfs 가 세번 다 돌면 첫번째 dfs 가 도는 방식
+            /**
+             *  for{
+             *      for{
+             *          for{
+             *              이런 느낌
+             *          }
+             *      }
+             *  }
+             */
+            rateCombination.pop();
+        }
+    }
+
+    public static void main(String[] args) {
+        dfs(0);
+    }
+}

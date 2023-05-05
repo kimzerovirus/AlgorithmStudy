@@ -49,12 +49,72 @@ public class 이모티콘할인행사 {
             for (int rate : discountedRates) {
                 discountedEmoticons.add(new Emoticon((100 - rate) * emoticons[depth] / 100, rate));
 
-                dfs(depth + 1, users, emoticons);
 //            System.out.println(depth);
 //            System.out.println(discountedEmoticons);
+                dfs(depth + 1, users, emoticons);
+
                 discountedEmoticons.pop();
             }
         }
+
+        /**
+         * 	0
+         * [percent : 10]
+         * 1
+         * [percent : 10, percent : 10]
+         * finish
+         * 1
+         * [percent : 10, percent : 20]
+         * finish
+         * 1
+         * [percent : 10, percent : 30]
+         * finish
+         * 1
+         * [percent : 10, percent : 40]
+         * finish
+         * 0
+         * [percent : 20]
+         * 1
+         * [percent : 20, percent : 10]
+         * finish
+         * 1
+         * [percent : 20, percent : 20]
+         * finish
+         * 1
+         * [percent : 20, percent : 30]
+         * finish
+         * 1
+         * [percent : 20, percent : 40]
+         * finish
+         * 0
+         * [percent : 30]
+         * 1
+         * [percent : 30, percent : 10]
+         * finish
+         * 1
+         * [percent : 30, percent : 20]
+         * finish
+         * 1
+         * [percent : 30, percent : 30]
+         * finish
+         * 1
+         * [percent : 30, percent : 40]
+         * finish
+         * 0
+         * [percent : 40]
+         * 1
+         * [percent : 40, percent : 10]
+         * finish
+         * 1
+         * [percent : 40, percent : 20]
+         * finish
+         * 1
+         * [percent : 40, percent : 30]
+         * finish
+         * 1
+         * [percent : 40, percent : 40]
+         * finish
+         */
 
         static class Emoticon {
             int price;
