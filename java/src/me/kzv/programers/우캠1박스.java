@@ -1,6 +1,6 @@
 package me.kzv.programers;
 
-public class 우캠박스1 {
+public class 우캠1박스 {
     class Solution {
         static int MAX = 100000;
 
@@ -18,7 +18,7 @@ public class 우캠박스1 {
                 int temp = 0;
                 for (int b : box) {
                     int earn = (money / 10000) * b;
-                    if(earn <= MAX) temp = Math.max(temp, earn);
+                    if(earn <= MAX) temp = Math.max(temp, earn); // <- 정렬 했으면 비교할 필요가 없었음
                 }
                 money += temp;
             }

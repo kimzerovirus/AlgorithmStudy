@@ -2,7 +2,7 @@ package me.kzv.programers;
 
 import java.util.Arrays;
 
-public class 우캠지뢰찾기3 {
+public class 우캠3지뢰찾기 {
     class Solution {
         static String[][] map, result;
         static int yLength, xLength;
