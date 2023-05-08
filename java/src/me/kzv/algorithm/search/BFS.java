@@ -1,4 +1,4 @@
-package me.kzv.algorithm;
+package me.kzv.algorithm.search;
 
 import java.util.*;
 

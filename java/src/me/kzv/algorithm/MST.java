@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class MST {
-
+    // 간선의 개수는 총 노드의 개수 - 1 이다.
 }
 
 class MST1 {
