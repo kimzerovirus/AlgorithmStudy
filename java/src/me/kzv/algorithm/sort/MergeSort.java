@@ -11,7 +11,7 @@ public class MergeSort {
     static int[] sorted;
 
     public static void main(String[] args) {
-        int[] arr = new int[]{10, 6, 4, 3, 9, 6, 8, 2, 7, 1};
+        int[] arr = new int[]{10, 6, 4, 3, 9, 5, 8, 2, 7, 1};
         sorted = new int[arr.length];
         mergeSort(arr, 0, arr.length - 1);
 

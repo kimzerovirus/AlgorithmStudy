@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{10, 6, 4, 3, 9, 6, 8, 2, 7, 1};
+        int[] arr = new int[]{10, 6, 4, 3, 9, 5, 8, 2, 7, 1};
         quickSort(arr, 0, arr.length - 1);
 
         System.out.println(Arrays.toString(arr));

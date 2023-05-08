@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{10, 6, 4, 3, 9, 6, 8, 2, 7, 1};
+        int[] arr = new int[]{10, 6, 4, 3, 9, 5, 8, 2, 7, 1};
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - (i + 1); j++) {

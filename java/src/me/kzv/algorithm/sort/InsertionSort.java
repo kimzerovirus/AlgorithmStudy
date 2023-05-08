@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{10, 6, 4, 3, 9, 6, 8, 2, 7, 1};
+        int[] arr = new int[]{10, 6, 4, 3, 9, 5, 8, 2, 7, 1};
 
         for (int i = 0; i < arr.length - 1; i++) {
             int temp, j = i;
