@@ -2,7 +2,7 @@ package me.kzv.baekjoon;
 
 import java.util.*;
 
-public class B14502 {
+public class B14502연구소 {
     public static void main(String[] args) {
 
     }

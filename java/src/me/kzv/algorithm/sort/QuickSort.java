@@ -5,7 +5,8 @@ import java.util.Arrays;
 /**
  * 퀵정렬 - 대표적인 분할 정복 알고리즘
  *
- *  o(N * logN)
+ *  최고 o(N * logN)
+ *  최악 o(N^2) <- 이미 정렬되어 있거나 거의 다 정렬되어 있다면 이렇게 됨
  */
 public class QuickSort {
     public static void main(String[] args) {
