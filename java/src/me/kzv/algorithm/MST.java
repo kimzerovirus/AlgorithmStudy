@@ -13,6 +13,13 @@ import java.util.StringTokenizer;
  */
 public class MST {
     // 간선의 개수는 총 노드의 개수 - 1 이다.
+
+    // 구현 순서
+    // 1. edges 배열 만들기
+    // 2. edges 배열 정렬하기
+    // 3. parent 배열 만들고
+    // 4. union & find 함수 구성하기
+    // 5. edges 배열 순회하면서 가중치 계산
 }
 
 class Kruskal {

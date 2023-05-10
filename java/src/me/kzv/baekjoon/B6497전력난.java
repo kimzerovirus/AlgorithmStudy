@@ -7,6 +7,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
+// 1. edges 배열 만들기
+// 2. edges 배열 정렬하기
+// 3. parent 배열 만들고
+// 4. union & find 함수 구성하기
+// 5. edges 배열 순회하면서 가중치 계산
 public class B6497전력난 {
     static int[] parent;
 
