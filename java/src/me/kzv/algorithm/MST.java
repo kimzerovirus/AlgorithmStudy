@@ -8,6 +8,9 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+/**
+ * Minimum Spanning Tree 최소 신장 트리
+ */
 public class MST {
     // 간선의 개수는 총 노드의 개수 - 1 이다.
 }
