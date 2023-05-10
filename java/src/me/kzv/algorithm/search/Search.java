@@ -85,14 +85,14 @@ class Graph {
                     stack.push(n);
                 }
             }
-            visit(r);
+            print(r);
         }
     }
 
     void dfsR(Node r) {
         if(r == null) return;
         r.isVisited = true;
-        visit(r);
+        print(r);
         for (Node n : r.adjacent) {
             if (!n.isVisited) {
                 dfsR(n);
@@ -126,11 +126,11 @@ class Graph {
                     queue.add(n);
                 }
             }
-            visit(r);
+            print(r);
         }
     }
 
-    void visit(Node n) {
+    void print(Node n) {
         System.out.print(n.data + " ");
     }
 

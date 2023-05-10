@@ -2,6 +2,41 @@ package me.kzv.algorithm.search;
 
 import java.util.*;
 
+class SimpleBFS {
+    static int N = 7;
+    static int[][] graph;
+    static boolean[] visited = new boolean[N + 1];
+
+    public static void main(String[] args) {
+        // 그래프를 만들때 연관관계를 다 적어줘도 되고 단방향으로 적어줘도 됨
+        // 또는 배열 말고 map 을 이용해서 노드 번호를 key 로 설정하고 value 에 인접 노드 번호 배열을 넣어서 구현해도됨
+        graph = new int[][]{
+                {2, 3}, {1, 3, 4, 5}, {1, 2, 6, 7}, {2, 5}, {2, 4}, {3, 7}, {3, 6}
+        };
+
+        bfs(5);
+    }
+
+    static void bfs(int start) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(start);
+        visited[start] = true;
+        while (!q.isEmpty()) {
+            int num = q.peek();
+            int idx = q.poll() - 1;
+            for (int i = 0; i < graph[idx].length; i++) {
+                int y = graph[idx][i];
+                if (!visited[y]) {
+                    q.add(y);
+                    visited[y] = true;
+                }
+            }
+            System.out.print(num + " -> ");
+        }
+    }
+}
+
+
 public class BFS {
     // BFS 넢이 우선 탐색
     // 큐를 이용한 횡의 방향 완전탐색
@@ -326,4 +361,3 @@ class Horse {
         System.out.println("최적의 점프 횟수는 " + answer + "회");
     }
 }
-
