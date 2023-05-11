@@ -84,7 +84,7 @@ class Kruskal {
     // 파인드
     public static int find(int[] parent, int x) {
         if (parent[x] == x) return x;
-        else return find(parent, parent[x]);
+        else return find(parent, parent[x]); // 타고 들어가서 최상단 노드로
     }
 
     // 크루스칼
@@ -177,3 +177,4 @@ class MST2{
     }
 
 }
+
