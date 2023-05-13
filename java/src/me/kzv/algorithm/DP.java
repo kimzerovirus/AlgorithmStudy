@@ -26,7 +26,7 @@ public class DP {
         q1_with_dp();
     }
 
-    // 피보나치 수열 점화식
+    // 바텀업 피보나치 수열 점화식
     static void fibonacci() {
         int[] arr = new int[10];
         arr[0] = 1;
@@ -39,7 +39,7 @@ public class DP {
         System.out.println(Arrays.toString(arr));
     }
 
-    // 재귀 이용 - 메모이제이션을 안하면 2^n 의 시간이 걸린다
+    // 탑다운 재귀 이용 - 메모이제이션을 안하면 2^n 의 시간이 걸린다
     // o(n)
     static int[] d = new int[100];
     static int fibonacci2(int x){
