@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * 이분탐색
  */
-public class Main {
+public class B1920수찾기 {
 
     public static void main(String[] args) {
 
