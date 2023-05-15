@@ -2,7 +2,7 @@ package me.kzv.programers;
 
 import java.util.*;
 
-public class 양궁대회 {
+public class 디펜스게임 {
     public int solution(int n, int k, int[] enemy) {
         int answer = 0;
 
@@ -12,13 +12,10 @@ public class 양궁대회 {
             pq.add(enemy[i]);
             n -= enemy[i];
 
-            if(n < 0){
-                if(k > 0){
-                    n += pq.poll();
-                    k--;
-                } else {
-                    break;
-                }
+            if (n < 0) {
+                if (k == 0) break;
+                n += pq.poll();
+                k--;
             }
             answer++;
         }
