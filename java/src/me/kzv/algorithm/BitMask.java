@@ -9,7 +9,7 @@ package me.kzv.algorithm;
  * x = 0000 0001(2) = 1 -> 0000 0100(2) = 4
  * >> RIGHT SHIFT x>>2 비트를 오른쪽으로 이동, 하나 이동할 때마다 나누기 2
  * x = 0000 0100(2) = 4 -> 0000 0001(2) = 1
- * <p>
+ *
  * n개에서 부분집합의 개수는 2^n 이다.
  * 비트를 이용한 부분집합
  * 0    0000    {}
@@ -32,8 +32,8 @@ package me.kzv.algorithm;
 public class BitMask {
     public static void main(String[] args) {
         char[] data = {'A', 'B', 'C', 'D'};
-//        printSubsets(data);
-        q1두수의_합이_7인_경우의수();
+        printSubsets(data);
+//        q1두수의_합이_7인_경우의수();
     }
 
     private static void printSubsets(char[] arr) {
@@ -42,21 +42,7 @@ public class BitMask {
             System.out.print(i + " : " + "{ ");
 
             for (int j = 0; j < arr.length; j++) {
-                /**
-                 *  j   1 << j
-                 *  0   0001
-                 *  1   0010
-                 *  2   0100
-                 *  3   1000
-                 *
-                 *  ex) i 가 7일 경우에
-                 *  7 = 0111(2)
-                 *  반복문을 돌면서 조건문이 0이 아닌 값은
-                 *  0   0001
-                 *  1   0010
-                 *  2   0100 의 경우에서 arr[j] 가 출력되게 된다
-                 */
-                if ((i & 1 << j) != 0) System.out.print(arr[j] + " ");
+                if ((i & (1 << j)) != 0) System.out.print(arr[j] + " ");
             }
 
             System.out.println("}");
