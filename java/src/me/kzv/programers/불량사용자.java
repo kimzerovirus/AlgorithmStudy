@@ -3,9 +3,6 @@ package me.kzv.programers;
 import java.util.*;
 
 public class 불량사용자 {
-}
-
-class Solution {
     static Set<Set<String>> answer = new HashSet();
     static Set<String> set = new HashSet();
     static List<String> visited = new ArrayList<>();
