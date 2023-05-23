@@ -16,7 +16,7 @@ public class 불량사용자 {
 
         // 밴후보군
         for (int i = 0; i < banned_id.length; i++) {
-            list.add(new ArrayList());
+            list.add(new ArrayList<>());
         }
 
         int idx = 0;
@@ -46,7 +46,7 @@ public class 불량사용자 {
 
     static void go(int cnt) {
         if (cnt == list.size()) {
-            answer.add(new HashSet<>(set));
+            answer.add(new HashSet<>(set)); // 전역에 있는 set을 가지고 하다보니 주소 참조로 인한 에러가 있는 듯 따라서 새로운 set을 만들어서 담아서 해결
             return;
         }
 
