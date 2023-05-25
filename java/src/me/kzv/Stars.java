@@ -1,3 +1,5 @@
+package me.kzv;
+
 public class Stars {
     public static void main(String[] args) {
         역삼각형();
