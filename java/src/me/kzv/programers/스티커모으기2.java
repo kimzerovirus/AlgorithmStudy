@@ -6,7 +6,7 @@ public class 스티커모으기2 {
         if(len == 1) return sticker[0];
 
         int[] dp1 = new int[len], dp2 = new int[len];
-        dp1[0] = sticker[0];
+        dp1[0] = sticker[0]; // 연속해서 더해가므로 시작지점 부터 끝까지 넣어줘야함
         dp1[1] = sticker[0];
 
         for(int i = 2; i < len -1; i++){
