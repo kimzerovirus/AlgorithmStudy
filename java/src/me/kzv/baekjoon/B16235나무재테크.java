@@ -37,7 +37,7 @@ public class B16235나무재테크 {
                 // 만약, 땅에 양분이 부족해 자신의 나이만큼 양분을 먹을 수 없는 나무는 양분을 먹지 못하고 즉시 죽는다.
 
                 if (A[tree.y][tree.x] - tree.age < 0) {
-                    // 각각의 죽은 나무마다 나이를 2로 나눈 값이 나무가 있던 칸에 양분으로 추가된다\
+                    // 각각의 죽은 나무마다 나이를 2로 나눈 값이 나무가 있던 칸에 양분으로 추가된다
                     dt.add(new Tree(tree.y, tree.x, tree.age / 2));
                 } else {
                     temp.add(new Tree(tree.y, tree.x, tree.age + 1)); // 생존한 나무
@@ -79,29 +79,29 @@ public class B16235나무재테크 {
 
         System.out.println(trees.size());
     }
-}
 
-class Tree implements Comparable<Tree> {
-    int y, x, age;
+    static class Tree implements Comparable<Tree> {
+        int y, x, age;
 
-    public Tree(int y, int x, int age) {
-        this.y = y;
-        this.x = x;
-        this.age = age;
-    }
+        public Tree(int y, int x, int age) {
+            this.y = y;
+            this.x = x;
+            this.age = age;
+        }
 
-    @Override
-    public int compareTo(Tree t) {
-        return this.age - t.age;
-    }
+        @Override
+        public int compareTo(Tree t) {
+            return this.age - t.age;
+        }
 
-    @Override
-    public String toString() {
-        return "Tree{" +
-                "y=" + y +
-                ", x=" + x +
-                ", age=" + age +
-                '}';
+        @Override
+        public String toString() {
+            return "Tree{" +
+                    "y=" + y +
+                    ", x=" + x +
+                    ", age=" + age +
+                    '}';
+        }
     }
 }
 
