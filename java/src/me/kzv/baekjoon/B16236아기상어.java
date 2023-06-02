@@ -1,128 +1,110 @@
 package me.kzv.baekjoon;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
-/*
-    문제
-N×N 크기의 공간에 물고기 M마리와 아기 상어 1마리가 있다. 공간은 1×1 크기의 정사각형 칸으로 나누어져 있다. 한 칸에는 물고기가 최대 1마리 존재한다.
-
-아기 상어와 물고기는 모두 크기를 가지고 있고, 이 크기는 자연수이다. 가장 처음에 아기 상어의 크기는 2이고, 아기 상어는 1초에 상하좌우로 인접한 한 칸씩 이동한다.
-
-아기 상어는 자신의 크기보다 큰 물고기가 있는 칸은 지나갈 수 없고, 나머지 칸은 모두 지나갈 수 있다. 아기 상어는 자신의 크기보다 작은 물고기만 먹을 수 있다. 따라서, 크기가 같은 물고기는 먹을 수 없지만, 그 물고기가 있는 칸은 지나갈 수 있다.
-
-아기 상어가 어디로 이동할지 결정하는 방법은 아래와 같다.
-
-더 이상 먹을 수 있는 물고기가 공간에 없다면 아기 상어는 엄마 상어에게 도움을 요청한다.
-먹을 수 있는 물고기가 1마리라면, 그 물고기를 먹으러 간다.
-먹을 수 있는 물고기가 1마리보다 많다면, 거리가 가장 가까운 물고기를 먹으러 간다.
-거리는 아기 상어가 있는 칸에서 물고기가 있는 칸으로 이동할 때, 지나야하는 칸의 개수의 최솟값이다.
-거리가 가까운 물고기가 많다면, 가장 위에 있는 물고기, 그러한 물고기가 여러마리라면, 가장 왼쪽에 있는 물고기를 먹는다.
-아기 상어의 이동은 1초 걸리고, 물고기를 먹는데 걸리는 시간은 없다고 가정한다. 즉, 아기 상어가 먹을 수 있는 물고기가 있는 칸으로 이동했다면, 이동과 동시에 물고기를 먹는다. 물고기를 먹으면, 그 칸은 빈 칸이 된다.
-
-아기 상어는 자신의 크기와 같은 수의 물고기를 먹을 때 마다 크기가 1 증가한다. 예를 들어, 크기가 2인 아기 상어는 물고기를 2마리 먹으면 크기가 3이 된다.
-
-공간의 상태가 주어졌을 때, 아기 상어가 몇 초 동안 엄마 상어에게 도움을 요청하지 않고 물고기를 잡아먹을 수 있는지 구하는 프로그램을 작성하시오.
-
-입력
-첫째 줄에 공간의 크기 N(2 ≤ N ≤ 20)이 주어진다.
-
-둘째 줄부터 N개의 줄에 공간의 상태가 주어진다. 공간의 상태는 0, 1, 2, 3, 4, 5, 6, 9로 이루어져 있고, 아래와 같은 의미를 가진다.
-
-0: 빈 칸
-1, 2, 3, 4, 5, 6: 칸에 있는 물고기의 크기
-9: 아기 상어의 위치
-아기 상어는 공간에 한 마리 있다.
-
-출력
-첫째 줄에 아기 상어가 엄마 상어에게 도움을 요청하지 않고 물고기를 잡아먹을 수 있는 시간을 출력한다.
-
-3
-0 0 0
-0 0 0
-0 9 0
- */
 public class B16236아기상어 {
-    static int N;
-    static int[][] arr;
-    static PriorityQueue<Fish> pq = new PriorityQueue<>();
     static int[] dy = {1, -1, 0, 0};
     static int[] dx = {0, 0, 1, -1};
+
+    // 상어 정보
+    static int lv = 2;
+    static int exp = -1; // 반복문 시작하면서 +1 하므로 0이 아니라 -1 부터 시작
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        N = sc.nextInt();
-        arr = new int[N][N];
+        int result = 0;
+        int N = sc.nextInt();
+        int[][] arr = new int[N][N];
+
+        // 먹이 찾을 순서용
+        PriorityQueue<Node> pq = new PriorityQueue<>();
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 int size = sc.nextInt();
+                if (size == 9) {
+                    pq.add(new Node(i, j, 0)); // 상어가 있는 위치부터 시작
+                    arr[i][j] = 0;
+                    continue;
+                }
                 arr[i][j] = size;
-                if (size > 0 && size <= 6) {
-                    pq.add(new Fish(i, j, size));
+            }
+        }
+
+
+        Queue<Node> q = new LinkedList<>(); // 길찾기용 bfs
+
+        while (!pq.isEmpty()) {
+            boolean[][] visited = new boolean[N][N];
+            Node node = pq.poll(); // 가장 가까운 녀석을 꺼내고
+            pq.clear(); // 먹이 순서를 다시 정하기 위해 초기화
+            arr[node.y][node.x] = 0; // 방문 노드는 0으로 설정
+            result += node.dist;
+            if(++exp == lv) {
+                lv += 1;
+                exp = 0;
+            }
+
+            q.add(new Node(node.y, node.x, 0)); // bfs 시작점 세팅
+            visited[node.y][node.x] = true;
+
+            while (!q.isEmpty()) {
+                Node shark = q.poll(); // 현재 상어 위치
+                int y = shark.y;
+                int x = shark.x;
+
+                for (int i = 0; i < 4; i++) {
+                    int ny = y + dy[i];
+                    int nx = x + dx[i];
+
+                    // 이미 후보로 등록되었거나 먹을 수 없는 경우
+                    if (ny < 0 || ny >= N || nx < 0 || nx >= N || arr[ny][nx] > lv || visited[ny][nx]) {
+                        continue;
+                    }
+
+                    if (arr[ny][nx] < lv && arr[ny][nx] != 0) { // 먹을 수 있는 후보 저장
+                        pq.add(new Node(ny, nx, shark.dist + 1));
+
+                    }
+
+                    q.add(new Node(ny, nx, shark.dist + 1)); // 위치 이동
+                    visited[ny][nx] = true;
                 }
             }
         }
 
-//        먹을 수 있는 물고기가 1마리라면, 그 물고기를 먹으러 간다.
-//        먹을 수 있는 물고기가 1마리보다 많다면, 거리가 가장 가까운 물고기를 먹으러 간다.
-//        거리는 아기 상어가 있는 칸에서 물고기가 있는 칸으로 이동할 때, 지나야하는 칸의 개수의 최솟값이다.
-//        거리가 가까운 물고기가 많다면, 가장 위에 있는 물고기, 그러한 물고기가 여러마리라면, 가장 왼쪽에 있는 물고기를 먹는다.
-//        아기 상어의 이동은 1초 걸리고, 물고기를 먹는데 걸리는 시간은 없다고 가정한다. 즉, 아기 상어가 먹을 수 있는 물고기가 있는 칸으로 이동했다면, 이동과 동시에 물고기를 먹는다. 물고기를 먹으면, 그 칸은 빈 칸이 된다.
+        System.out.println(result);
     }
 
-    static class Fish implements Comparable<Fish>{
-        int y, x, lv;
+    static class Node implements Comparable<Node> {
+        int y, x, dist;
 
-        public Fish(int y, int x, int lv) {
+        public Node(int y, int x, int dist) {
             this.y = y;
             this.x = x;
-            this.lv = lv;
+            this.dist = dist;
         }
 
         @Override
-        public int compareTo(Fish f) {
-            return this.lv - f.lv;
+        public int compareTo(Node n) {
+            if (dist == n.dist) {
+                if (y == n.y) {
+                    return x - n.x;
+                } else {
+                    return y - n.y;
+                }
+            } else {
+                return dist - n.dist;
+            }
         }
 
         @Override
         public String toString() {
-            return "Fish{" +
+            return "Node{" +
                     "y=" + y +
                     ", x=" + x +
-                    ", lv=" + lv +
-                    '}';
-        }
-    }
-
-    static class Shark {
-        int y, x, lv, exp;
-
-        public Shark(int y, int x) {
-            this.y = y;
-            this.x = x;
-            this.lv = 2;
-            this.exp = 0;
-        }
-
-        void levelUp() {
-            this.lv += 1;
-            this.exp = 0;
-        }
-
-        int move(int y, int x) {
-            return 0;
-        }
-
-        @Override
-        public String toString() {
-            return "Shark{" +
-                    "y=" + y +
-                    ", x=" + x +
-                    ", lv=" + lv +
-                    ", exp=" + exp +
+                    ", dist=" + dist +
                     '}';
         }
     }
