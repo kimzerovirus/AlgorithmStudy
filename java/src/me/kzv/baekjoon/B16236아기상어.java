@@ -32,7 +32,6 @@ public class B16236아기상어 {
             }
         }
 
-
         Queue<Node> q = new LinkedList<>(); // 길찾기용 bfs
 
         while (!pq.isEmpty()) {
@@ -42,7 +41,7 @@ public class B16236아기상어 {
             arr[node.y][node.x] = 0; // 방문 노드는 0으로 설정
             result += node.dist;
             if(++exp == lv) {
-                lv += 1;
+                lv++;
                 exp = 0;
             }
 
@@ -65,7 +64,6 @@ public class B16236아기상어 {
 
                     if (arr[ny][nx] < lv && arr[ny][nx] != 0) { // 먹을 수 있는 후보 저장
                         pq.add(new Node(ny, nx, shark.dist + 1));
-
                     }
 
                     q.add(new Node(ny, nx, shark.dist + 1)); // 위치 이동
