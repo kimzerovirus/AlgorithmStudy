@@ -54,7 +54,7 @@ public class B14500테크로미노 {
             if (!visited[ny][nx]) {
                 if (depth == 2) { // ㅜ 모양 체크
                     visited[ny][nx] = true;
-                    go(y, x, sum + arr[ny][nx], depth + 1);
+                    go(y, x, sum + arr[ny][nx], depth + 1); // ㄱ 모양 만들어 높고 옆에 하나 더함
                     visited[ny][nx] = false;
                 }
 
