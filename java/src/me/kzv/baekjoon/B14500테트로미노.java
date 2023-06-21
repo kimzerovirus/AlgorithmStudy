@@ -2,8 +2,7 @@ package me.kzv.baekjoon;
 
 import java.util.Scanner;
 
-public class B14500테크로미노 {
-
+public class B14500테트로미노 {
     static int[][] arr;
     static boolean[][] visited;
     static int N, M;
@@ -47,21 +46,19 @@ public class B14500테크로미노 {
             int ny = y + dy[i];
             int nx = x + dx[i];
 
-            if (ny < 0 || ny >= N || nx < 0 || nx >= M) {
+            if (ny < 0 || ny >= N || nx < 0 || nx >= M || visited[ny][nx]) {
                 continue;
             }
 
-            if (!visited[ny][nx]) {
-                if (depth == 2) { // ㅜ 모양 체크
-                    visited[ny][nx] = true;
-                    go(y, x, sum + arr[ny][nx], depth + 1); // ㄱ 모양 만들어 높고 옆에 하나 더함
-                    visited[ny][nx] = false;
-                }
-
+            if (depth == 2) { // ㅜ 모양 체크
                 visited[ny][nx] = true;
-                go(ny, nx, sum + arr[ny][nx], depth + 1);
+                go(y, x, sum + arr[ny][nx], depth + 1); // ㄱ 모양 만들어 높고 옆에 하나 더함
                 visited[ny][nx] = false;
             }
+
+            visited[ny][nx] = true;
+            go(ny, nx, sum + arr[ny][nx], depth + 1);
+            visited[ny][nx] = false;
         }
     }
 }
