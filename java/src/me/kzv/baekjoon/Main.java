@@ -3,7 +3,7 @@ package me.kzv.baekjoon;
 import java.util.*;
 
 public class Main {
-    static ArrayDeque<Node> Bam = new ArrayDeque<>();
+    static ArrayDeque<Node> Snake = new ArrayDeque<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -20,12 +20,12 @@ public class Main {
             q.add(new Direction(sc.nextInt(), sc.nextLine()));
         }
 
-        Bam.addFirst(new Node(0, 0));
+        Snake.addFirst(new Node(0, 0));
 
         int time = 0;
         int lazy = 0;
         while (q.isEmpty()) {
-            Node bam = Bam.peek();
+            Node bam = Snake.peek();
             int y = bam.y;
             int x = bam.x;
 
@@ -33,7 +33,6 @@ public class Main {
                 Direction poll = q.poll();
                 lazy = poll.time;
             }
-
 
         }
     }
@@ -48,7 +47,7 @@ public class Main {
     }
 
     static boolean isPossible(int[] position) {
-        return Bam.contains(position);
+        return Snake.contains(position);
     }
 
     static class Node {
