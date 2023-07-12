@@ -42,11 +42,6 @@ public class NQueen {
                         int nx = col + dx[j] * i;
 
                         if (ny >= 0 && nx >= 0 && ny < N && nx < N) cnt += map[ny][nx];
-
-                        ny = row - dy[j] * i;
-                        nx = col - dx[j] * i;
-
-                        if (ny >= 0 && nx >= 0 && ny < N && nx < N) cnt += map[ny][nx];
                     }
                 }
             }
