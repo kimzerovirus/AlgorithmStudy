@@ -1,53 +1,48 @@
 package me.kzv.baekjoon;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class B2580스도쿠 {
     public static int[][] arr = new int[9][9];
+    public static List<int[]> blank = new ArrayList<>();
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                arr[i][j] = in.nextInt();
+                arr[i][j] = sc.nextInt();
+                if (arr[i][j] == 0) blank.add(new int[]{i, j});
             }
         }
 
-        go(0, 0);
+        go(0);
     }
 
-    public static void go(int row, int col) {
-        if (arr[row][col] == 0) {
-            for (int i = 1; i <= 9; i++) {
-                if (isPossible(row, col, i)) {
-                    arr[row][col] = i;
-                    next(row, col);
-                    arr[row][col] = 0;
+    public static void go(int idx) {
+        if (idx == blank.size()) {
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    System.out.print(arr[i][j] + " ");
                 }
+                System.out.println();
             }
-        } else {
-            next(row, col);
+            System.exit(0);
+        }
+
+        int[] position = blank.get(idx);
+        int row = position[0];
+        int col = position[1];
+
+        for (int i = 1; i <= 9; i++) {
+            if (isPossible(row, col, i)) {
+                arr[row][col] = i;
+                go(idx++);
+                arr[row][col] = 0;
+            }
         }
     }
 
-    public static void next(int row, int col) {
-        if (++col < 9) {
-            go(row, col);
-        } else {
-            if (++row == 9) {
-                for (int i = 0; i < 9; i++) {
-                    for (int j = 0; j < 9; j++) {
-                        System.out.print(arr[i][j] + " ");
-                    }
-                    System.out.println();
-                }
-                System.exit(0);
-            }
-
-            go(row, 0);
-        }
-    }
 
     public static boolean isPossible(int row, int col, int value) {
         for (int i = 0; i < 9; i++) {
